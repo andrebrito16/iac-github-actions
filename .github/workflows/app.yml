@@ -62,7 +62,7 @@ jobs:
   #                    Setup Jobs                    # 
   #--------------------------------------------------#
   Setup:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
 
     outputs:
       Event: ${{steps.analysis.outputs.event}}
@@ -93,7 +93,7 @@ jobs:
   #                  Static Analysis                 # 
   #--------------------------------------------------#
   Static-Analysis:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: needs.Setup.outputs.Event == 'push'
     needs: Setup
 
@@ -124,7 +124,7 @@ jobs:
   #                      Release                     # 
   #--------------------------------------------------#
   Release:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: needs.Setup.outputs.Event == 'push'
 
     needs: 
@@ -171,7 +171,7 @@ jobs:
   #                      Trigger                     # 
   #--------------------------------------------------#
   Trigger-Build:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: github.event_name == 'push'
 
     needs: 
@@ -210,7 +210,7 @@ jobs:
   #                  Trigger Manual                  # 
   #--------------------------------------------------#
   Trigger-Manual:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: github.event_name == 'workflow_dispatch'
 
     needs: 
@@ -249,7 +249,7 @@ jobs:
   #                       Build                      # 
   #--------------------------------------------------#
   Build:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: github.event_name == 'deployment'
 
     needs: 
@@ -319,7 +319,7 @@ jobs:
   #                      Deploy                      # 
   #--------------------------------------------------#
   Deploy:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
 
     environment: ${{needs.Setup.outputs.Environment}}
     

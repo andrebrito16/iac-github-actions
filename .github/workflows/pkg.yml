@@ -47,7 +47,7 @@ jobs:
   #                    Setup Jobs                    # 
   #--------------------------------------------------#
   Setup:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
 
     outputs:
       Event: ${{steps.analysis.outputs.event}}
@@ -71,7 +71,7 @@ jobs:
   #                  Static Analysis                 # 
   #--------------------------------------------------#
   Static-Analysis:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: needs.Setup.outputs.Event == 'push'
     needs: Setup
 
@@ -102,7 +102,7 @@ jobs:
   #                      Release                     # 
   #--------------------------------------------------#
   Release:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: needs.Setup.outputs.Event == 'push'
 
     needs: 

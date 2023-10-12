@@ -66,7 +66,7 @@ jobs:
   #                  Tests: Node.js                  # 
   #--------------------------------------------------#
   Tests-Node:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'javascript'
 
     strategy:
@@ -113,7 +113,7 @@ jobs:
   #                  Tests: Python                   # 
   #--------------------------------------------------#
   Tests-Python:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'python'
 
     strategy:
@@ -142,7 +142,7 @@ jobs:
   #                    Tests: Go                     #
   #--------------------------------------------------#
   Tests-Go:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'go'
     
     strategy:
@@ -180,7 +180,7 @@ jobs:
   #                 Release: Node.js                 # 
   #--------------------------------------------------#
   Release-Node:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     needs: Tests-Node
 
     outputs:
@@ -225,7 +225,7 @@ jobs:
   #                 Release: Python                  # 
   #--------------------------------------------------#
   Release-Python:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     needs: Tests-Python
 
     outputs:
@@ -270,7 +270,7 @@ jobs:
   #                    Release: Go                   # 
   #--------------------------------------------------#
   Release-Go:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     needs: Tests-Go
 
     outputs:
@@ -316,7 +316,7 @@ jobs:
   #               Release: Undetected                # 
   #--------------------------------------------------#
   Release-Undetected:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'undetected'
 
     outputs:

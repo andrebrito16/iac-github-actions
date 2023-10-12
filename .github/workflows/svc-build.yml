@@ -57,7 +57,7 @@ jobs:
   #                  Build: Node.js                  # 
   #--------------------------------------------------#
   Build-Node:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'javascript'
 
     steps:
@@ -126,7 +126,7 @@ jobs:
   #                  Build: Python                   # 
   #--------------------------------------------------#
   Build-Python:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'python'
 
     steps:
@@ -194,7 +194,7 @@ jobs:
   #                    Build: Go                     # 
   #--------------------------------------------------#
   Build-Go:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'go'
 
     steps:
@@ -262,7 +262,7 @@ jobs:
   #                Build: Dockerfile                 # 
   #--------------------------------------------------#
   Build-Dockerfile:
-    runs-on: ubuntu-latest
+    runs-on: actions-runner-controller
     if: inputs.language == 'undetected'
 
     steps:
